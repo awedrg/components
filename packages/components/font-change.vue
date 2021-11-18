@@ -1,6 +1,8 @@
 <template>
   <div>
-    这里是font-change
+    <Button type="primary">Primary</Button>
+    <Button type="dashed">Dashed</Button>
+    <Button type="text">Text</Button>
   </div>
 </template>
 <script>

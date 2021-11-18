@@ -4,15 +4,15 @@ var webpack = require("webpack");
 module.exports = env => {
   let lib = env.lib;
   return {
-    entry: lib?"./packages/index.js":'./examples/main.js', // 入口文件
+    entry: lib ? "./packages/index.js" : "./examples/main.js", // 入口文件
     output: {
       // 修改输出文件到 dist 下
 
       path: path.resolve(__dirname, "./dist"),
       publicPath: "/dist/",
-      filename: lib?'index.js':'build.js',
-      library: lib?'packages':'',
-      libraryTarget: lib?'umd':'var',
+      filename: lib ? "index.js" : "build.js",
+      library: lib ? "packages" : "",
+      libraryTarget: lib ? "umd" : "var",
       umdNamedDefine: !!lib
     },
     module: {
@@ -40,6 +40,10 @@ module.exports = env => {
           options: {
             name: "[name].[ext]?[hash]"
           }
+        },
+        {
+          test: /\.(woff2?|ttf)$/,
+          loader: "url-loader"
         }
       ]
     },
